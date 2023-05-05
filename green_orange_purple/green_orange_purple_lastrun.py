@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Wed May  3 10:02:58 2023
+    on Wed May  3 15:28:12 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -732,7 +732,7 @@ for thisPractice_trial in practice_trials:
     elif (key_resp_practice_JarSelection.keys== 'f'): #right jar
         marble_color = random.choice(practice_Jar1_Colors)
     else:
-        marble_color = -1
+        #marble_color = -1
         marble_points = 0
             
             
@@ -1459,7 +1459,7 @@ for thisWhich_task in which_task:
     elif (key_resp_trials_JarSelection.keys== 'f'): #right jar
         marble_color = random.choice(Jar1_Colors)
     else:
-        marble_color = -1
+        #marble_color = -1
         marble_points = 0
             
             
