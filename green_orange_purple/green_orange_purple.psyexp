@@ -5,9 +5,9 @@
     <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
     <Param val="" valType="str" updates="None" name="Completed URL"/>
     <Param val="auto" valType="str" updates="None" name="Data file delimiter"/>
-    <Param val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
+    <Param val="u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
     <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
-    <Param val="{'participant': '', 'group': ''}" valType="code" updates="None" name="Experiment info"/>
+    <Param val="{'anonymous_participant_id': '', 'group': ''}" valType="code" updates="None" name="Experiment info"/>
     <Param val="True" valType="bool" updates="None" name="Force stereo"/>
     <Param val="True" valType="bool" updates="None" name="Full-screen window"/>
     <Param val="" valType="str" updates="None" name="HTML path"/>
@@ -1253,7 +1253,7 @@
       </CodeComponent>
     </Routine>
     <Routine name="exp_name">
-      <CodeComponent name="expName">
+      <CodeComponent name="expName_2">
         <Param val="exp_name = 'green_orange_purple'" valType="extendedCode" updates="constant" name="Before Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
         <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
@@ -1268,7 +1268,7 @@
         <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
         <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
         <Param val="False" valType="bool" updates="None" name="disabled"/>
-        <Param val="expName" valType="code" updates="None" name="name"/>
+        <Param val="expName_2" valType="code" updates="None" name="name"/>
       </CodeComponent>
     </Routine>
     <Routine name="color_pts">

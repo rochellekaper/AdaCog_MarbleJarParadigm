@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Thu May 25 14:14:31 2023
+    on Thu May 25 14:47:06 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -68,7 +68,7 @@ os.chdir(_thisDir)
 psychopyVersion = '2022.2.5'
 expName = 'green_orange_purple'  # from the Builder filename that created this script
 expInfo = {
-    'participant': '',
+    'anonymous_participant_id': '',
     'group': '',
 }
 # --- Show participant info dialog --
@@ -80,7 +80,7 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Fri May  5 16:39:50 2023
+    on Thu May 25 14:53:10 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -18,7 +18,6 @@ psychopy.useVersion('2022.2.5')
 # --- Import packages ---
 from psychopy import locale_setup
 from psychopy import prefs
-prefs.hardware['audioLib'] = 'ptb'
 from psychopy import sound, gui, visual, core, data, event, logging, clock, colors, layout
 from psychopy.constants import (NOT_STARTED, STARTED, PLAYING, PAUSED,
                                 STOPPED, FINISHED, PRESSED, RELEASED, FOREVER)
@@ -32,9 +31,33 @@ import sys  # to get file system encoding
 
 from psychopy.hardware import keyboard
 
+# Run 'Before Experiment' code from exp_name1_2
+exp_name = 'purple_green_orange'
+# Run 'Before Experiment' code from code
+valuepath = '/Users/rochellekaper/Desktop/Both_Tasks/' + exp_name  + '/' + exp_name + '.png'
+# Run 'Before Experiment' code from color_points_dict
+colors = []
+color_points = [2, 3, 4]
+
+if exp_name == 'orange_green_purple':
+    colors = ["darkorange", "green", "purple"]
+if exp_name == 'orange_purple_green':
+    colors = ["darkorange", "purple", "green"]
+if exp_name == 'purple_orange_green':
+    colors = ["purple", "darkorange", "green"]
+if exp_name =='purple_green_orange':
+    colors = ["purple", "green", "darkorange"]
+if exp_name == 'green_orange_purple':
+    colors = ["green", "darkorange", "purple"]
+if exp_name == 'green_purple_orange':
+    colors = ["green", "purple", "darkorange"]
+
+color_pts_dict = {colors[i]: color_points[i] for i in range(len(colors))}
+#thisExp.addData('Color Points Dictionary', color_pts_dict)
+orange = color_pts_dict['darkorange']
+green = color_pts_dict['green']
+purple = color_pts_dict['purple']
 # Run 'Before Experiment' code from check_task_3
-import random
-# Run 'Before Experiment' code from check_task
 import random
 
 
@@ -45,8 +68,8 @@ os.chdir(_thisDir)
 psychopyVersion = '2022.2.5'
 expName = 'purple_green_orange'  # from the Builder filename that created this script
 expInfo = {
-    'participant_num': '',
-    'which_group': '',
+    'anonymous_participant_id': '',
+    'group': '',
 }
 # --- Show participant info dialog --
 dlg = gui.DlgFromDict(dictionary=expInfo, sortKeys=False, title=expName)
@@ -57,7 +80,7 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s' % (expInfo['participant_num'], 'group1_')
+filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['date'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -65,6 +88,8 @@ thisExp = data.ExperimentHandler(name=expName, version='',
     originPath='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
+# save a log file for detail verbose info
+logFile = logging.LogFile(filename+'.log', level=logging.EXP)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
@@ -93,17 +118,13 @@ ioSession = ioServer = eyetracker = None
 # create a default keyboard (e.g. to check for escape)
 defaultKeyboard = keyboard.Keyboard(backend='ptb')
 
-# --- Initialize components for Routine "Instructions" ---
-initial_instructions = visual.TextStim(win=win, name='initial_instructions',
-    text="Welcome to the Marble Jar Exeriment. \n\nDuring this experiment, you will see 2 marble jars. \n\nOn half of the trials, you will randomly do a Jar Selection Task where you pick which jar you want a marble to be sampled from. \n\nOn the other half of the trials, you'll do a Change Detection Task where you'll be asked to remember if the jar is the same or different. \n\n\nPress space to continue",
-    font='Open Sans',
-    pos=(0, 0), height=0.051, wrapWidth=None, ori=0.0, 
-    color='white', colorSpace='rgb', opacity=None, 
-    languageStyle='LTR',
-    depth=0.0);
-key_resp_instructions = keyboard.Keyboard()
+# --- Initialize components for Routine "exp_name1" ---
 
-# --- Initialize components for Routine "practice_instructions" ---
+# --- Initialize components for Routine "value_path" ---
+
+# --- Initialize components for Routine "color_pts" ---
+
+# --- Initialize components for Routine "practice_instructions1" ---
 practice_instruc = visual.TextStim(win=win, name='practice_instruc',
     text='In the next section, you will complete practice trials. Data from these trials will not be collected.\n\n\nPress the space bar to begin.',
     font='Open Sans',
@@ -113,7 +134,7 @@ practice_instruc = visual.TextStim(win=win, name='practice_instruc',
     depth=0.0);
 key_resp_practice_instruct = keyboard.Keyboard()
 
-# --- Initialize components for Routine "practice_JarSelection" ---
+# --- Initialize components for Routine "practice_JarSelection1" ---
 jar1_3 = visual.ImageStim(
     win=win,
     name='jar1_3', 
@@ -141,13 +162,13 @@ jar2_3 = visual.ImageStim(
 MarbleValues_3 = visual.ImageStim(
     win=win,
     name='MarbleValues_3', 
-    image='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange.png', mask=None, anchor='center',
+    image=valuepath , mask=None, anchor='center',
     ori=0.0, pos=(0, 0.35), size=(0.525, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-4.0)
 
-# --- Initialize components for Routine "practice_sample_marble" ---
+# --- Initialize components for Routine "practice_sample_marble1" ---
 # Run 'Begin Experiment' code from random_marble_2
 #gainsTotal = 0
 print_marble_points_2 = visual.TextStim(win=win, name='print_marble_points_2',
@@ -164,7 +185,7 @@ marble_2 = visual.ShapeStim(
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-2.0, interpolate=True)
 
-# --- Initialize components for Routine "practice_ChangeDetection" ---
+# --- Initialize components for Routine "practice_ChangeDetection1" ---
 jar1_4 = visual.ImageStim(
     win=win,
     name='jar1_4', 
@@ -207,13 +228,13 @@ blankscreen_2 = visual.TextStim(win=win, name='blankscreen_2',
 MarbleValues_4 = visual.ImageStim(
     win=win,
     name='MarbleValues_4', 
-    image='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange.png', mask=None, anchor='center',
+    image=valuepath , mask=None, anchor='center',
     ori=0.0, pos=(0, 0.35), size=(0.525, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-7.0)
 
-# --- Initialize components for Routine "practice_change_feedback" ---
+# --- Initialize components for Routine "practice_change_feedback1" ---
 fb_2 = visual.TextStim(win=win, name='fb_2',
     text='',
     font='Open Sans',
@@ -222,7 +243,7 @@ fb_2 = visual.TextStim(win=win, name='fb_2',
     languageStyle='LTR',
     depth=-1.0);
 
-# --- Initialize components for Routine "ready_to_begin" ---
+# --- Initialize components for Routine "ready_to_begin1" ---
 text_3 = visual.TextStim(win=win, name='text_3',
     text='Ready to begin the experiment? Scores from these trials will be collected.\n\n\nPress the space bar to begin.',
     font='Open Sans',
@@ -232,7 +253,7 @@ text_3 = visual.TextStim(win=win, name='text_3',
     depth=0.0);
 key_resp_ready = keyboard.Keyboard()
 
-# --- Initialize components for Routine "trials_JarSelection" ---
+# --- Initialize components for Routine "trials_JarSelection1" ---
 jar1 = visual.ImageStim(
     win=win,
     name='jar1', 
@@ -260,13 +281,13 @@ jar2 = visual.ImageStim(
 MarbleValues = visual.ImageStim(
     win=win,
     name='MarbleValues', 
-    image='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange.png', mask=None, anchor='center',
+    image=valuepath , mask=None, anchor='center',
     ori=0.0, pos=(0, 0.35), size=(0.525, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-4.0)
 
-# --- Initialize components for Routine "trials_sample_marble" ---
+# --- Initialize components for Routine "trials_sample_marble1" ---
 # Run 'Begin Experiment' code from random_marble
 gainsTotal = 0
 print_marble_points = visual.TextStim(win=win, name='print_marble_points',
@@ -283,7 +304,7 @@ marble = visual.ShapeStim(
     lineWidth=1.0,     colorSpace='rgb',  lineColor='white', fillColor='white',
     opacity=None, depth=-2.0, interpolate=True)
 
-# --- Initialize components for Routine "trials_ChangeDetection" ---
+# --- Initialize components for Routine "trials_ChangeDetection1" ---
 jar1_2 = visual.ImageStim(
     win=win,
     name='jar1_2', 
@@ -326,13 +347,13 @@ blankscreen = visual.TextStim(win=win, name='blankscreen',
 MarbleValues_2 = visual.ImageStim(
     win=win,
     name='MarbleValues_2', 
-    image='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange.png', mask=None, anchor='center',
+    image=valuepath , mask=None, anchor='center',
     ori=0.0, pos=(0, 0.35), size=(0.525, 0.2),
     color=[1,1,1], colorSpace='rgb', opacity=None,
     flipHoriz=False, flipVert=False,
     texRes=128.0, interpolate=True, depth=-7.0)
 
-# --- Initialize components for Routine "trials_Feedback_ChangeDetection" ---
+# --- Initialize components for Routine "trials_Feedback_ChangeDetection1" ---
 fb = visual.TextStim(win=win, name='fb',
     text='',
     font='Open Sans',
@@ -341,7 +362,7 @@ fb = visual.TextStim(win=win, name='fb',
     languageStyle='LTR',
     depth=-1.0);
 
-# --- Initialize components for Routine "total_points" ---
+# --- Initialize components for Routine "total_pts1" ---
 both_tasks_feedback = visual.TextStim(win=win, name='both_tasks_feedback',
     text='',
     font='Open Sans',
@@ -354,16 +375,13 @@ both_tasks_feedback = visual.TextStim(win=win, name='both_tasks_feedback',
 globalClock = core.Clock()  # to track the time since experiment started
 routineTimer = core.Clock()  # to track time remaining of each (possibly non-slip) routine 
 
-# --- Prepare to start Routine "Instructions" ---
+# --- Prepare to start Routine "exp_name1" ---
 continueRoutine = True
 routineForceEnded = False
 # update component parameters for each repeat
-key_resp_instructions.keys = []
-key_resp_instructions.rt = []
-_key_resp_instructions_allKeys = []
 # keep track of which components have finished
-InstructionsComponents = [initial_instructions, key_resp_instructions]
-for thisComponent in InstructionsComponents:
+exp_name1Components = []
+for thisComponent in exp_name1Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -375,7 +393,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 frameN = -1
 
-# --- Run Routine "Instructions" ---
+# --- Run Routine "exp_name1" ---
 while continueRoutine:
     # get current time
     t = routineTimer.getTime()
@@ -383,41 +401,6 @@ while continueRoutine:
     tThisFlipGlobal = win.getFutureFlipTime(clock=None)
     frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
     # update/draw components on each frame
-    
-    # *initial_instructions* updates
-    if initial_instructions.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        initial_instructions.frameNStart = frameN  # exact frame index
-        initial_instructions.tStart = t  # local t and not account for scr refresh
-        initial_instructions.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(initial_instructions, 'tStartRefresh')  # time at next scr refresh
-        # add timestamp to datafile
-        thisExp.timestampOnFlip(win, 'initial_instructions.started')
-        initial_instructions.setAutoDraw(True)
-    
-    # *key_resp_instructions* updates
-    waitOnFlip = False
-    if key_resp_instructions.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
-        # keep track of start time/frame for later
-        key_resp_instructions.frameNStart = frameN  # exact frame index
-        key_resp_instructions.tStart = t  # local t and not account for scr refresh
-        key_resp_instructions.tStartRefresh = tThisFlipGlobal  # on global time
-        win.timeOnFlip(key_resp_instructions, 'tStartRefresh')  # time at next scr refresh
-        # add timestamp to datafile
-        thisExp.timestampOnFlip(win, 'key_resp_instructions.started')
-        key_resp_instructions.status = STARTED
-        # keyboard checking is just starting
-        waitOnFlip = True
-        win.callOnFlip(key_resp_instructions.clock.reset)  # t=0 on next screen flip
-        win.callOnFlip(key_resp_instructions.clearEvents, eventType='keyboard')  # clear events on next screen flip
-    if key_resp_instructions.status == STARTED and not waitOnFlip:
-        theseKeys = key_resp_instructions.getKeys(keyList=['space'], waitRelease=False)
-        _key_resp_instructions_allKeys.extend(theseKeys)
-        if len(_key_resp_instructions_allKeys):
-            key_resp_instructions.keys = _key_resp_instructions_allKeys[-1].name  # just the last key pressed
-            key_resp_instructions.rt = _key_resp_instructions_allKeys[-1].rt
-            # a response ends the routine
-            continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -428,7 +411,7 @@ while continueRoutine:
         routineForceEnded = True
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in InstructionsComponents:
+    for thisComponent in exp_name1Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -437,30 +420,20 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# --- Ending Routine "Instructions" ---
-for thisComponent in InstructionsComponents:
+# --- Ending Routine "exp_name1" ---
+for thisComponent in exp_name1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# check responses
-if key_resp_instructions.keys in ['', [], None]:  # No response was made
-    key_resp_instructions.keys = None
-thisExp.addData('key_resp_instructions.keys',key_resp_instructions.keys)
-if key_resp_instructions.keys != None:  # we had a response
-    thisExp.addData('key_resp_instructions.rt', key_resp_instructions.rt)
-thisExp.nextEntry()
-# the Routine "Instructions" was not non-slip safe, so reset the non-slip timer
+# the Routine "exp_name1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# --- Prepare to start Routine "practice_instructions" ---
+# --- Prepare to start Routine "value_path" ---
 continueRoutine = True
 routineForceEnded = False
 # update component parameters for each repeat
-key_resp_practice_instruct.keys = []
-key_resp_practice_instruct.rt = []
-_key_resp_practice_instruct_allKeys = []
 # keep track of which components have finished
-practice_instructionsComponents = [practice_instruc, key_resp_practice_instruct]
-for thisComponent in practice_instructionsComponents:
+value_pathComponents = []
+for thisComponent in value_pathComponents:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -472,7 +445,114 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 frameN = -1
 
-# --- Run Routine "practice_instructions" ---
+# --- Run Routine "value_path" ---
+while continueRoutine:
+    # get current time
+    t = routineTimer.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        routineForceEnded = True
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in value_pathComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# --- Ending Routine "value_path" ---
+for thisComponent in value_pathComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "value_path" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# --- Prepare to start Routine "color_pts" ---
+continueRoutine = True
+routineForceEnded = False
+# update component parameters for each repeat
+# keep track of which components have finished
+color_ptsComponents = []
+for thisComponent in color_ptsComponents:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+frameN = -1
+
+# --- Run Routine "color_pts" ---
+while continueRoutine:
+    # get current time
+    t = routineTimer.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        routineForceEnded = True
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in color_ptsComponents:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# --- Ending Routine "color_pts" ---
+for thisComponent in color_ptsComponents:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# the Routine "color_pts" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
+# --- Prepare to start Routine "practice_instructions1" ---
+continueRoutine = True
+routineForceEnded = False
+# update component parameters for each repeat
+key_resp_practice_instruct.keys = []
+key_resp_practice_instruct.rt = []
+_key_resp_practice_instruct_allKeys = []
+# keep track of which components have finished
+practice_instructions1Components = [practice_instruc, key_resp_practice_instruct]
+for thisComponent in practice_instructions1Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+frameN = -1
+
+# --- Run Routine "practice_instructions1" ---
 while continueRoutine:
     # get current time
     t = routineTimer.getTime()
@@ -525,7 +605,7 @@ while continueRoutine:
         routineForceEnded = True
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in practice_instructionsComponents:
+    for thisComponent in practice_instructions1Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -534,8 +614,8 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# --- Ending Routine "practice_instructions" ---
-for thisComponent in practice_instructionsComponents:
+# --- Ending Routine "practice_instructions1" ---
+for thisComponent in practice_instructions1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # check responses
@@ -545,11 +625,11 @@ thisExp.addData('key_resp_practice_instruct.keys',key_resp_practice_instruct.key
 if key_resp_practice_instruct.keys != None:  # we had a response
     thisExp.addData('key_resp_practice_instruct.rt', key_resp_practice_instruct.rt)
 thisExp.nextEntry()
-# the Routine "practice_instructions" was not non-slip safe, so reset the non-slip timer
+# the Routine "practice_instructions1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-practice_trials = data.TrialHandler(nReps=1.0, method='fullRandom', 
+practice_trials = data.TrialHandler(nReps=1.0, method='random', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('practice_purple_green_orange.xlsx'),
     seed=None, name='practice_trials')
@@ -567,7 +647,7 @@ for thisPractice_trial in practice_trials:
         for paramName in thisPractice_trial:
             exec('{} = thisPractice_trial[paramName]'.format(paramName))
     
-    # --- Prepare to start Routine "practice_JarSelection" ---
+    # --- Prepare to start Routine "practice_JarSelection1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -577,8 +657,8 @@ for thisPractice_trial in practice_trials:
     _key_resp_practice_JarSelection_allKeys = []
     jar2_3.setImage(practice_Jar2)
     # keep track of which components have finished
-    practice_JarSelectionComponents = [jar1_3, text_2, key_resp_practice_JarSelection, jar2_3, MarbleValues_3]
-    for thisComponent in practice_JarSelectionComponents:
+    practice_JarSelection1Components = [jar1_3, text_2, key_resp_practice_JarSelection, jar2_3, MarbleValues_3]
+    for thisComponent in practice_JarSelection1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -590,7 +670,7 @@ for thisPractice_trial in practice_trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "practice_JarSelection" ---
+    # --- Run Routine "practice_JarSelection1" ---
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -702,7 +782,7 @@ for thisPractice_trial in practice_trials:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in practice_JarSelectionComponents:
+        for thisComponent in practice_JarSelection1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -711,8 +791,8 @@ for thisPractice_trial in practice_trials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "practice_JarSelection" ---
-    for thisComponent in practice_JarSelectionComponents:
+    # --- Ending Routine "practice_JarSelection1" ---
+    for thisComponent in practice_JarSelection1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -721,10 +801,10 @@ for thisPractice_trial in practice_trials:
     practice_trials.addData('key_resp_practice_JarSelection.keys',key_resp_practice_JarSelection.keys)
     if key_resp_practice_JarSelection.keys != None:  # we had a response
         practice_trials.addData('key_resp_practice_JarSelection.rt', key_resp_practice_JarSelection.rt)
-    # the Routine "practice_JarSelection" was not non-slip safe, so reset the non-slip timer
+    # the Routine "practice_JarSelection1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "practice_sample_marble" ---
+    # --- Prepare to start Routine "practice_sample_marble1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -739,14 +819,14 @@ for thisPractice_trial in practice_trials:
             
             
     if marble_color == 'darkorange':
-        marble_points = 4
-        #marble_points = color_pts_dict['darkorange']
+        #marble_points = 3
+        marble_points = color_pts_dict['darkorange']
     if marble_color == 'green':
-        marble_points = 3
-        #marble_points = color_pts_dict['green']
+        #marble_points = 2
+        marble_points = color_pts_dict['green']
     if marble_color == 'purple':
-        marble_points = 2
-        #marble_points = color_pts_dict['purple']
+        #marble_points = 4
+        marble_points = color_pts_dict['purple']
     
     #gainsTotal = gainsTotal + marble_points
     #thisExp.addData('Marble color', marble_color)
@@ -756,8 +836,8 @@ for thisPractice_trial in practice_trials:
     marble_2.setFillColor(marble_color)
     marble_2.setLineColor(marble_color)
     # keep track of which components have finished
-    practice_sample_marbleComponents = [print_marble_points_2, marble_2]
-    for thisComponent in practice_sample_marbleComponents:
+    practice_sample_marble1Components = [print_marble_points_2, marble_2]
+    for thisComponent in practice_sample_marble1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -769,7 +849,7 @@ for thisPractice_trial in practice_trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "practice_sample_marble" ---
+    # --- Run Routine "practice_sample_marble1" ---
     while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
@@ -822,7 +902,7 @@ for thisPractice_trial in practice_trials:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in practice_sample_marbleComponents:
+        for thisComponent in practice_sample_marble1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -831,8 +911,8 @@ for thisPractice_trial in practice_trials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "practice_sample_marble" ---
-    for thisComponent in practice_sample_marbleComponents:
+    # --- Ending Routine "practice_sample_marble1" ---
+    for thisComponent in practice_sample_marble1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
@@ -841,7 +921,7 @@ for thisPractice_trial in practice_trials:
     else:
         routineTimer.addTime(-2.000000)
     
-    # --- Prepare to start Routine "practice_ChangeDetection" ---
+    # --- Prepare to start Routine "practice_ChangeDetection1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -854,8 +934,8 @@ for thisPractice_trial in practice_trials:
     changedetection_2.setPos([practice_Jar3_position_X, practice_Jar3_position_Y])
     changedetection_2.setImage(practice_Jar3)
     # keep track of which components have finished
-    practice_ChangeDetectionComponents = [jar1_4, Same_or_Different_2, key_resp_trials_2, jar2_4, changedetection_2, blankscreen_2, MarbleValues_4]
-    for thisComponent in practice_ChangeDetectionComponents:
+    practice_ChangeDetection1Components = [jar1_4, Same_or_Different_2, key_resp_trials_2, jar2_4, changedetection_2, blankscreen_2, MarbleValues_4]
+    for thisComponent in practice_ChangeDetection1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -867,7 +947,7 @@ for thisPractice_trial in practice_trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "practice_ChangeDetection" ---
+    # --- Run Routine "practice_ChangeDetection1" ---
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1024,7 +1104,7 @@ for thisPractice_trial in practice_trials:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in practice_ChangeDetectionComponents:
+        for thisComponent in practice_ChangeDetection1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1033,8 +1113,8 @@ for thisPractice_trial in practice_trials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "practice_ChangeDetection" ---
-    for thisComponent in practice_ChangeDetectionComponents:
+    # --- Ending Routine "practice_ChangeDetection1" ---
+    for thisComponent in practice_ChangeDetection1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -1050,10 +1130,10 @@ for thisPractice_trial in practice_trials:
     practice_trials.addData('key_resp_trials_2.corr', key_resp_trials_2.corr)
     if key_resp_trials_2.keys != None:  # we had a response
         practice_trials.addData('key_resp_trials_2.rt', key_resp_trials_2.rt)
-    # the Routine "practice_ChangeDetection" was not non-slip safe, so reset the non-slip timer
+    # the Routine "practice_ChangeDetection1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "practice_change_feedback" ---
+    # --- Prepare to start Routine "practice_change_feedback1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -1076,8 +1156,8 @@ for thisPractice_trial in practice_trials:
     fb_2.setColor(fb_col, colorSpace='rgb')
     fb_2.setText(fb_text)
     # keep track of which components have finished
-    practice_change_feedbackComponents = [fb_2]
-    for thisComponent in practice_change_feedbackComponents:
+    practice_change_feedback1Components = [fb_2]
+    for thisComponent in practice_change_feedback1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1089,7 +1169,7 @@ for thisPractice_trial in practice_trials:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "practice_change_feedback" ---
+    # --- Run Routine "practice_change_feedback1" ---
     while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
@@ -1130,7 +1210,7 @@ for thisPractice_trial in practice_trials:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in practice_change_feedbackComponents:
+        for thisComponent in practice_change_feedback1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1139,8 +1219,8 @@ for thisPractice_trial in practice_trials:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "practice_change_feedback" ---
-    for thisComponent in practice_change_feedbackComponents:
+    # --- Ending Routine "practice_change_feedback1" ---
+    for thisComponent in practice_change_feedback1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
@@ -1158,11 +1238,14 @@ if practice_trials.trialList in ([], [None], None):
 else:
     params = practice_trials.trialList[0].keys()
 # save data for this loop
+practice_trials.saveAsExcel(filename + '.xlsx', sheetName='practice_trials',
+    stimOut=params,
+    dataOut=['n','all_mean','all_std', 'all_raw'])
 practice_trials.saveAsText(filename + 'practice_trials.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
 
-# --- Prepare to start Routine "ready_to_begin" ---
+# --- Prepare to start Routine "ready_to_begin1" ---
 continueRoutine = True
 routineForceEnded = False
 # update component parameters for each repeat
@@ -1170,8 +1253,8 @@ key_resp_ready.keys = []
 key_resp_ready.rt = []
 _key_resp_ready_allKeys = []
 # keep track of which components have finished
-ready_to_beginComponents = [text_3, key_resp_ready]
-for thisComponent in ready_to_beginComponents:
+ready_to_begin1Components = [text_3, key_resp_ready]
+for thisComponent in ready_to_begin1Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -1183,7 +1266,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 frameN = -1
 
-# --- Run Routine "ready_to_begin" ---
+# --- Run Routine "ready_to_begin1" ---
 while continueRoutine:
     # get current time
     t = routineTimer.getTime()
@@ -1236,7 +1319,7 @@ while continueRoutine:
         routineForceEnded = True
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in ready_to_beginComponents:
+    for thisComponent in ready_to_begin1Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -1245,8 +1328,8 @@ while continueRoutine:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# --- Ending Routine "ready_to_begin" ---
-for thisComponent in ready_to_beginComponents:
+# --- Ending Routine "ready_to_begin1" ---
+for thisComponent in ready_to_begin1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # check responses
@@ -1256,29 +1339,29 @@ thisExp.addData('key_resp_ready.keys',key_resp_ready.keys)
 if key_resp_ready.keys != None:  # we had a response
     thisExp.addData('key_resp_ready.rt', key_resp_ready.rt)
 thisExp.nextEntry()
-# the Routine "ready_to_begin" was not non-slip safe, so reset the non-slip timer
+# the Routine "ready_to_begin1" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
 # set up handler to look after randomisation of conditions etc
-which_task = data.TrialHandler(nReps=1.0, method='random', 
+which_trial = data.TrialHandler(nReps=1.0, method='fullRandom', 
     extraInfo=expInfo, originPath=-1,
     trialList=data.importConditions('Condition_File_purple_green_orange.xlsx'),
-    seed=None, name='which_task')
-thisExp.addLoop(which_task)  # add the loop to the experiment
-thisWhich_task = which_task.trialList[0]  # so we can initialise stimuli with some values
-# abbreviate parameter names if possible (e.g. rgb = thisWhich_task.rgb)
-if thisWhich_task != None:
-    for paramName in thisWhich_task:
-        exec('{} = thisWhich_task[paramName]'.format(paramName))
+    seed=None, name='which_trial')
+thisExp.addLoop(which_trial)  # add the loop to the experiment
+thisWhich_trial = which_trial.trialList[0]  # so we can initialise stimuli with some values
+# abbreviate parameter names if possible (e.g. rgb = thisWhich_trial.rgb)
+if thisWhich_trial != None:
+    for paramName in thisWhich_trial:
+        exec('{} = thisWhich_trial[paramName]'.format(paramName))
 
-for thisWhich_task in which_task:
-    currentLoop = which_task
-    # abbreviate parameter names if possible (e.g. rgb = thisWhich_task.rgb)
-    if thisWhich_task != None:
-        for paramName in thisWhich_task:
-            exec('{} = thisWhich_task[paramName]'.format(paramName))
+for thisWhich_trial in which_trial:
+    currentLoop = which_trial
+    # abbreviate parameter names if possible (e.g. rgb = thisWhich_trial.rgb)
+    if thisWhich_trial != None:
+        for paramName in thisWhich_trial:
+            exec('{} = thisWhich_trial[paramName]'.format(paramName))
     
-    # --- Prepare to start Routine "trials_JarSelection" ---
+    # --- Prepare to start Routine "trials_JarSelection1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -1288,8 +1371,8 @@ for thisWhich_task in which_task:
     _key_resp_trials_JarSelection_allKeys = []
     jar2.setImage(Jar2)
     # keep track of which components have finished
-    trials_JarSelectionComponents = [jar1, text, key_resp_trials_JarSelection, jar2, MarbleValues]
-    for thisComponent in trials_JarSelectionComponents:
+    trials_JarSelection1Components = [jar1, text, key_resp_trials_JarSelection, jar2, MarbleValues]
+    for thisComponent in trials_JarSelection1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1301,7 +1384,7 @@ for thisWhich_task in which_task:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "trials_JarSelection" ---
+    # --- Run Routine "trials_JarSelection1" ---
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1419,7 +1502,7 @@ for thisWhich_task in which_task:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in trials_JarSelectionComponents:
+        for thisComponent in trials_JarSelection1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1428,8 +1511,8 @@ for thisWhich_task in which_task:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "trials_JarSelection" ---
-    for thisComponent in trials_JarSelectionComponents:
+    # --- Ending Routine "trials_JarSelection1" ---
+    for thisComponent in trials_JarSelection1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -1440,15 +1523,15 @@ for thisWhich_task in which_task:
            key_resp_trials_JarSelection.corr = 1;  # correct non-response
         else:
            key_resp_trials_JarSelection.corr = 0;  # failed to respond (incorrectly)
-    # store data for which_task (TrialHandler)
-    which_task.addData('key_resp_trials_JarSelection.keys',key_resp_trials_JarSelection.keys)
-    which_task.addData('key_resp_trials_JarSelection.corr', key_resp_trials_JarSelection.corr)
+    # store data for which_trial (TrialHandler)
+    which_trial.addData('key_resp_trials_JarSelection.keys',key_resp_trials_JarSelection.keys)
+    which_trial.addData('key_resp_trials_JarSelection.corr', key_resp_trials_JarSelection.corr)
     if key_resp_trials_JarSelection.keys != None:  # we had a response
-        which_task.addData('key_resp_trials_JarSelection.rt', key_resp_trials_JarSelection.rt)
-    # the Routine "trials_JarSelection" was not non-slip safe, so reset the non-slip timer
+        which_trial.addData('key_resp_trials_JarSelection.rt', key_resp_trials_JarSelection.rt)
+    # the Routine "trials_JarSelection1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "trials_sample_marble" ---
+    # --- Prepare to start Routine "trials_sample_marble1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -1467,14 +1550,14 @@ for thisWhich_task in which_task:
             
             
     if marble_color == 'darkorange':
-        marble_points = 4
-        #marble_points = color_pts_dict['darkorange']
+        #marble_points = 3
+        marble_points = color_pts_dict['darkorange']
     if marble_color == 'green':
-        marble_points = 3
-        #marble_points = color_pts_dict['green']
+        #marble_points = 2
+        marble_points = color_pts_dict['green']
     if marble_color == 'purple':
-        marble_points = 2
-        #marble_points = color_pts_dict['purple']
+        #marble_points = 4
+        marble_points = color_pts_dict['purple']
     
     gainsTotal = gainsTotal + marble_points
     thisExp.addData('Marble color', marble_color)
@@ -1484,8 +1567,8 @@ for thisWhich_task in which_task:
     marble.setFillColor(marble_color)
     marble.setLineColor(marble_color)
     # keep track of which components have finished
-    trials_sample_marbleComponents = [print_marble_points, marble]
-    for thisComponent in trials_sample_marbleComponents:
+    trials_sample_marble1Components = [print_marble_points, marble]
+    for thisComponent in trials_sample_marble1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1497,7 +1580,7 @@ for thisWhich_task in which_task:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "trials_sample_marble" ---
+    # --- Run Routine "trials_sample_marble1" ---
     while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
@@ -1550,7 +1633,7 @@ for thisWhich_task in which_task:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in trials_sample_marbleComponents:
+        for thisComponent in trials_sample_marble1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1559,8 +1642,8 @@ for thisWhich_task in which_task:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "trials_sample_marble" ---
-    for thisComponent in trials_sample_marbleComponents:
+    # --- Ending Routine "trials_sample_marble1" ---
+    for thisComponent in trials_sample_marble1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # Run 'End Routine' code from random_marble
@@ -1575,7 +1658,7 @@ for thisWhich_task in which_task:
     else:
         routineTimer.addTime(-2.000000)
     
-    # --- Prepare to start Routine "trials_ChangeDetection" ---
+    # --- Prepare to start Routine "trials_ChangeDetection1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -1588,8 +1671,8 @@ for thisWhich_task in which_task:
     changedetection.setPos([Jar3_position_X, Jar3_position_Y])
     changedetection.setImage(Jar3)
     # keep track of which components have finished
-    trials_ChangeDetectionComponents = [jar1_2, Same_or_Different, key_resp_trials, jar2_2, changedetection, blankscreen, MarbleValues_2]
-    for thisComponent in trials_ChangeDetectionComponents:
+    trials_ChangeDetection1Components = [jar1_2, Same_or_Different, key_resp_trials, jar2_2, changedetection, blankscreen, MarbleValues_2]
+    for thisComponent in trials_ChangeDetection1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1601,7 +1684,7 @@ for thisWhich_task in which_task:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "trials_ChangeDetection" ---
+    # --- Run Routine "trials_ChangeDetection1" ---
     while continueRoutine:
         # get current time
         t = routineTimer.getTime()
@@ -1741,7 +1824,7 @@ for thisWhich_task in which_task:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in trials_ChangeDetectionComponents:
+        for thisComponent in trials_ChangeDetection1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1750,8 +1833,8 @@ for thisWhich_task in which_task:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "trials_ChangeDetection" ---
-    for thisComponent in trials_ChangeDetectionComponents:
+    # --- Ending Routine "trials_ChangeDetection1" ---
+    for thisComponent in trials_ChangeDetection1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # check responses
@@ -1762,15 +1845,15 @@ for thisWhich_task in which_task:
            key_resp_trials.corr = 1;  # correct non-response
         else:
            key_resp_trials.corr = 0;  # failed to respond (incorrectly)
-    # store data for which_task (TrialHandler)
-    which_task.addData('key_resp_trials.keys',key_resp_trials.keys)
-    which_task.addData('key_resp_trials.corr', key_resp_trials.corr)
+    # store data for which_trial (TrialHandler)
+    which_trial.addData('key_resp_trials.keys',key_resp_trials.keys)
+    which_trial.addData('key_resp_trials.corr', key_resp_trials.corr)
     if key_resp_trials.keys != None:  # we had a response
-        which_task.addData('key_resp_trials.rt', key_resp_trials.rt)
-    # the Routine "trials_ChangeDetection" was not non-slip safe, so reset the non-slip timer
+        which_trial.addData('key_resp_trials.rt', key_resp_trials.rt)
+    # the Routine "trials_ChangeDetection1" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # --- Prepare to start Routine "trials_Feedback_ChangeDetection" ---
+    # --- Prepare to start Routine "trials_Feedback_ChangeDetection1" ---
     continueRoutine = True
     routineForceEnded = False
     # update component parameters for each repeat
@@ -1793,8 +1876,8 @@ for thisWhich_task in which_task:
     fb.setColor(fb_col, colorSpace='rgb')
     fb.setText(fb_text)
     # keep track of which components have finished
-    trials_Feedback_ChangeDetectionComponents = [fb]
-    for thisComponent in trials_Feedback_ChangeDetectionComponents:
+    trials_Feedback_ChangeDetection1Components = [fb]
+    for thisComponent in trials_Feedback_ChangeDetection1Components:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1806,7 +1889,7 @@ for thisWhich_task in which_task:
     _timeToFirstFrame = win.getFutureFlipTime(clock="now")
     frameN = -1
     
-    # --- Run Routine "trials_Feedback_ChangeDetection" ---
+    # --- Run Routine "trials_Feedback_ChangeDetection1" ---
     while continueRoutine and routineTimer.getTime() < 2.0:
         # get current time
         t = routineTimer.getTime()
@@ -1843,7 +1926,7 @@ for thisWhich_task in which_task:
             routineForceEnded = True
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in trials_Feedback_ChangeDetectionComponents:
+        for thisComponent in trials_Feedback_ChangeDetection1Components:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1852,8 +1935,8 @@ for thisWhich_task in which_task:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # --- Ending Routine "trials_Feedback_ChangeDetection" ---
-    for thisComponent in trials_Feedback_ChangeDetectionComponents:
+    # --- Ending Routine "trials_Feedback_ChangeDetection1" ---
+    for thisComponent in trials_Feedback_ChangeDetection1Components:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
     # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
@@ -1863,19 +1946,22 @@ for thisWhich_task in which_task:
         routineTimer.addTime(-2.000000)
     thisExp.nextEntry()
     
-# completed 1.0 repeats of 'which_task'
+# completed 1.0 repeats of 'which_trial'
 
 # get names of stimulus parameters
-if which_task.trialList in ([], [None], None):
+if which_trial.trialList in ([], [None], None):
     params = []
 else:
-    params = which_task.trialList[0].keys()
+    params = which_trial.trialList[0].keys()
 # save data for this loop
-which_task.saveAsText(filename + 'which_task.csv', delim=',',
+which_trial.saveAsExcel(filename + '.xlsx', sheetName='which_trial',
+    stimOut=params,
+    dataOut=['n','all_mean','all_std', 'all_raw'])
+which_trial.saveAsText(filename + 'which_trial.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
 
-# --- Prepare to start Routine "total_points" ---
+# --- Prepare to start Routine "total_pts1" ---
 continueRoutine = True
 routineForceEnded = False
 # update component parameters for each repeat
@@ -1883,8 +1969,8 @@ both_tasks_feedback.setText("Congrats on completing the Marble Jar Task! You got
 # Run 'Begin Routine' code from TOTAL_POINTS
 thisExp.addData('TOTAL POINTS', gainsTotal)
 # keep track of which components have finished
-total_pointsComponents = [both_tasks_feedback]
-for thisComponent in total_pointsComponents:
+total_pts1Components = [both_tasks_feedback]
+for thisComponent in total_pts1Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
     thisComponent.tStartRefresh = None
@@ -1896,7 +1982,7 @@ t = 0
 _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 frameN = -1
 
-# --- Run Routine "total_points" ---
+# --- Run Routine "total_pts1" ---
 while continueRoutine and routineTimer.getTime() < 3.0:
     # get current time
     t = routineTimer.getTime()
@@ -1934,7 +2020,7 @@ while continueRoutine and routineTimer.getTime() < 3.0:
         routineForceEnded = True
         break
     continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in total_pointsComponents:
+    for thisComponent in total_pts1Components:
         if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
             continueRoutine = True
             break  # at least one component has not yet finished
@@ -1943,8 +2029,8 @@ while continueRoutine and routineTimer.getTime() < 3.0:
     if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
         win.flip()
 
-# --- Ending Routine "total_points" ---
-for thisComponent in total_pointsComponents:
+# --- Ending Routine "total_pts1" ---
+for thisComponent in total_pts1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
 # using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
@@ -1959,8 +2045,9 @@ else:
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
-thisExp.saveAsWideText(filename+'.csv', delim='comma')
+thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
+logging.flush()
 # make sure everything is closed down
 if eyetracker:
     eyetracker.setConnectionState(False)
