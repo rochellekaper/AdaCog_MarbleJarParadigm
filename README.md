@@ -1,11 +1,11 @@
 **Marble Jar Paradigm**:
 The marble points (2,3,4) and color (purple, orange, green) mappings are randomized so therefore there are 6 possible experiments. 
 Each one is in its own folder:
-- _green_purple_orange _
+- _green_purple_orange_
 - _purple_orange_green_
 - _orange_green_purple_
 - _orange_purple_green_ 
-- _purple_green_orange _
+- _purple_green_orange_
 - _green_orange_purple_
 
 
