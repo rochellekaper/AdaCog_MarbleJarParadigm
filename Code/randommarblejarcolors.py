@@ -53,9 +53,11 @@ def generate_random_marblejar(amount):
         img1.ellipse((165, 165, 225, 225), fill = col_list[8], outline = col_list[8]) #marble 9
         #img.show()
         img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/reg_trials/rand_marblejar'+"_"+str(i)+".jpg")
+        #img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/reg_trials/redo_marblejar'+"_"+str(i)+".jpg")
         img_list.append(img)
     
-    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/reg_trials/rand*.jpg')))
+    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/reg_trials/rand*')))
+    #files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/reg_trials/redo*')))
     files = natsorted(files)
 
     
@@ -66,11 +68,11 @@ def generate_random_marblejar(amount):
 
     return img_list, file_colors
 
-rand, rand_files = generate_random_marblejar(225)
+# rand, rand_files = generate_random_marblejar(225)
 
-with open("random.txt", 'w') as f: 
-    for key, value in rand_files.items(): 
-        f.write('%s:%s\n' % (key, value))    
+# with open("random.txt", 'w') as f: 
+#     for key, value in rand_files.items(): 
+#         f.write('%s:%s\n' % (key, value))    
 
 
 f_out.close

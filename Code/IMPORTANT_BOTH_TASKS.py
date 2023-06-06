@@ -23,7 +23,7 @@ from natsort import natsorted
 import random
 
 r_l_out = open("path_col.txt", "w")
-r_l_3_out = open("path_col_3.txt", "w")
+
 
 def generate_marblejar_right_left(amount_of_jars, whichjar): 
     #specify number of images you want generated
@@ -39,11 +39,11 @@ def generate_marblejar_right_left(amount_of_jars, whichjar):
         
         for index, val in enumerate(random_num_list):
              if val == 2:        
-                 col_list[index] = 'purple'
+                 col_list[index] = 'darkorange'
              if val == 3:        
                  col_list[index] = 'green'   
              if val == 4:        
-                 col_list[index] = 'darkorange'
+                 col_list[index] = 'purple'
         #print(col_list)
         col_list_of_lists.append(col_list)
         
@@ -64,10 +64,10 @@ def generate_marblejar_right_left(amount_of_jars, whichjar):
         img1.ellipse((95, 165, 155, 225), fill = col_list[7], outline = col_list[7]) #marble 8
         img1.ellipse((165, 165, 225, 225), fill = col_list[8], outline = col_list[8]) #marble 9
         #img.show()
-        img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/Stimuli/reg_trials/marblejar'+"_"+str(whichjar)+"_"+str(i)+".jpg")
+        img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/reg_trials/marblejar'+"_"+str(whichjar)+"_"+str(i)+".jpg")
         img_list.append(img)
     
-    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/Stimuli/reg_trials/*.jpg')))
+    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/reg_trials/marblejar_' + str(whichjar) + '*.jpg')))
     files = natsorted(files)
 
     
@@ -104,7 +104,7 @@ def generate_jar3(jar_images, list_jar3, whichjar):
     
     for i, j in enumerate(list_jar3):
         if j == 'same':
-            jar_images[i].save(r'/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/Stimuli/reg_trials/marblejar3'+"_"+ whichjar+"_"+str(j)+"_"+str(i)+".jpg")
+            jar_images[i].save(r'/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/reg_trials/marblejar3'+"_"+ whichjar+"_"+str(j)+"_"+str(i)+".jpg")
             img_list.append(jar_images[i])
 
         if j == 'different':
@@ -113,11 +113,11 @@ def generate_jar3(jar_images, list_jar3, whichjar):
             
             for index, val in enumerate(random_num_list):
                  if val == 2:        
-                     col_list[index] = 'purple'
+                     col_list[index] = 'darkorange'
                  if val == 3:        
                      col_list[index] = 'green'   
                  if val == 4:        
-                     col_list[index] = 'darkorange'
+                     col_list[index] = 'purple'
             #print(col_list)
             col_list_of_lists.append(col_list)
             
@@ -139,10 +139,10 @@ def generate_jar3(jar_images, list_jar3, whichjar):
             img1.ellipse((165, 165, 225, 225), fill = col_list[8], outline = col_list[8]) #marble 9
             
             #img.show()
-            img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/Stimuli/reg_trials/marblejar3'+"_"+str(whichjar)+"_"+str(j)+"_"+str(i)+".jpg")
+            img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/reg_trials/marblejar3'+"_"+str(whichjar)+"_"+str(j)+"_"+str(i)+".jpg")
             img_list.append(img)
             
-    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/Stimuli/reg_trials/marblejar3*.jpg')))
+    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/reg_trials/marblejar3_' + str(whichjar) + '*.jpg')))
     files = natsorted(files)
 
 
@@ -171,9 +171,9 @@ def specify_jar_pts(points, num_jars): #takes in total amount of points you want
     
         for index, val in enumerate(random_num_list):
              if val == 2:        
-                 col_list[index] = 'green'
+                 col_list[index] = 'darkorange'
              if val == 3:        
-                col_list[index] = 'darkorange'
+                col_list[index] = 'green'
              if val == 4:        
                  col_list[index] = 'purple'   
         random.shuffle(col_list)
@@ -196,10 +196,10 @@ def specify_jar_pts(points, num_jars): #takes in total amount of points you want
         img1.ellipse((25, 165, 85, 225), fill = col_list[6], outline = col_list[6]) #marble 7
         img1.ellipse((95, 165, 155, 225), fill = col_list[7], outline = col_list[7]) #marble 8
         img1.ellipse((165, 165, 225, 225), fill = col_list[8], outline = col_list[8]) #marble 9
-        img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/marblejar'+"_"+str(points)+"points"+str(i)+".jpg")
+        img.save(r'/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/marblejar'+"_"+str(points)+"points"+str(i)+".jpg")
         img_list.append(img)
    
-    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/green_orange_purple/Stimuli/marblejar_' +str(points) + '*.jpg')))
+    files = list(zip(glob.glob('/Users/rochellekaper/Desktop/Both_Tasks/orange_green_purple/Stimuli/marblejar_' +str(points) + '*.jpg')))
     files = natsorted(files)
 
     for filename, i in zip(files, range(len(col_list_of_lists))): 
@@ -222,26 +222,22 @@ def specify_jar_pts(points, num_jars): #takes in total amount of points you want
 
 
 
-#write out dictionaries to text file 
+# #write out dictionaries to text file 
 # with open("path_col.txt", 'w') as f: 
 #     for key, value in file_colors_right.items(): 
 #         f.write('%s:%s\n' % (key, value))    
-
-# with open("path_col.txt", 'a') as f: 
 #     for key, value in file_colors_left.items(): 
 #         f.write('%s:%s\n' % (key, value))    
         
-# with open("path_col_3.txt", 'w') as fi: 
 #     for key, value in right3_files.items(): 
-#         fi.write('%s:%s\n' % (key, value))    
+#         f.write('%s:%s\n' % (key, value))    
 
-# with open("path_col_3.txt", 'a') as fi: 
 #     for key, value in left3_files.items(): 
-#         fi.write('%s:%s\n' % (key, value))    
+#         f.write('%s:%s\n' % (key, value))    
 
  
 # r_l_out.close() 
-# r_l_3_out.close()
+
 
 
 ''' Risk Aversion Trials '''
@@ -250,39 +246,39 @@ def specify_jar_pts(points, num_jars): #takes in total amount of points you want
 #Need to randomize whether the 3rd jar is same or different (or do it manually as I am now.)     
 
 
-imgs, files_col = specify_jar_pts(29, 15)
-imgs1, files_col1 = specify_jar_pts(28, 30)
-imgs2, files_col2 = specify_jar_pts(27, 30)
-imgs3, files_col3 = specify_jar_pts(26, 30)
-imgs4, files_col4 = specify_jar_pts(25, 30)
-imgs5, files_col5 = specify_jar_pts(24, 30)
-imgs6, files_col6 = specify_jar_pts(23, 30)
-imgs7, files_col7 = specify_jar_pts(22, 15)
-imgs8, files_col8 = specify_jar_pts(30, 15)
+# imgs, files_col = specify_jar_pts(29, 15)
+# imgs1, files_col1 = specify_jar_pts(28, 30)
+# imgs2, files_col2 = specify_jar_pts(27, 30)
+# imgs3, files_col3 = specify_jar_pts(26, 30)
+# imgs4, files_col4 = specify_jar_pts(25, 30)
+# imgs5, files_col5 = specify_jar_pts(24, 30)
+# imgs6, files_col6 = specify_jar_pts(23, 30)
+# imgs7, files_col7 = specify_jar_pts(22, 15)
+# imgs8, files_col8 = specify_jar_pts(30, 15)
 
-#print(files_col4)
-#write out to text file
+
+# #write out to text file
 
              
-with open("file_colors_riskaversion.txt", 'w') as r: 
-    for key, value in files_col.items(): 
-        r.write('%s:%s\n' % (key, value))  
-    for key, value in files_col1.items(): 
-        r.write('%s:%s\n' % (key, value))     
-    for key, value in files_col2.items(): 
-        r.write('%s:%s\n' % (key, value))  
-    for key, value in files_col3.items(): 
-        r.write('%s:%s\n' % (key, value))        
-    for key, value in files_col4.items(): 
-        r.write('%s:%s\n' % (key, value))        
-    for key, value in files_col5.items(): 
-        r.write('%s:%s\n' % (key, value))
-    for key, value in files_col6.items(): 
-        r.write('%s:%s\n' % (key, value))
-    for key, value in files_col7.items(): 
-        r.write('%s:%s\n' % (key, value))   
-    for key, value in files_col8.items(): 
-        r.write('%s:%s\n' % (key, value))   
+# with open("file_colors_riskaversion.txt", 'w') as r: 
+#     for key, value in files_col.items(): 
+#         r.write('%s:%s\n' % (key, value))  
+#     for key, value in files_col1.items(): 
+#         r.write('%s:%s\n' % (key, value))     
+#     for key, value in files_col2.items(): 
+#         r.write('%s:%s\n' % (key, value))  
+#     for key, value in files_col3.items(): 
+#         r.write('%s:%s\n' % (key, value))        
+#     for key, value in files_col4.items(): 
+#         r.write('%s:%s\n' % (key, value))        
+#     for key, value in files_col5.items(): 
+#         r.write('%s:%s\n' % (key, value))
+#     for key, value in files_col6.items(): 
+#         r.write('%s:%s\n' % (key, value))
+#     for key, value in files_col7.items(): 
+#         r.write('%s:%s\n' % (key, value))   
+#     for key, value in files_col8.items(): 
+#         r.write('%s:%s\n' % (key, value))   
 
 
 
