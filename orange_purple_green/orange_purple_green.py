@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+﻿#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Wed May 31 22:17:45 2023
+    on Thu Jul 13 20:10:40 2023
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -258,6 +258,15 @@ fb_2 = visual.TextStim(win=win, name='fb_2',
     text='',
     font='Open Sans',
     pos=(0, 0), height=0.07, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=-1.0);
+
+# --- Initialize components for Routine "Break" ---
+break_text = visual.TextStim(win=win, name='break_text',
+    text='Time for a 4 minute break! \nYour HRV will now be measured. \n\nPlease press the space bar when the break is over to continue the task. ',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=-1.0);
@@ -1334,6 +1343,72 @@ for thisPractice_trial in practice_trials:
         routineTimer.reset()
     else:
         routineTimer.addTime(-2.000000)
+    
+    # --- Prepare to start Routine "Break" ---
+    continueRoutine = True
+    routineForceEnded = False
+    # update component parameters for each repeat
+    # Run 'Begin Routine' code from break_code
+    if which_task.thisN != 3:
+        continueRoutine = False
+    # keep track of which components have finished
+    BreakComponents = [break_text]
+    for thisComponent in BreakComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "Break" ---
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *break_text* updates
+        if break_text.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            break_text.frameNStart = frameN  # exact frame index
+            break_text.tStart = t  # local t and not account for scr refresh
+            break_text.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(break_text, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'break_text.started')
+            break_text.setAutoDraw(True)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in BreakComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "Break" ---
+    for thisComponent in BreakComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "Break" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
 # completed 1.0 repeats of 'practice_trials'
 
 
