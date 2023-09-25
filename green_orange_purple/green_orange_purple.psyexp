@@ -5,7 +5,7 @@
     <Param val="use prefs" valType="str" updates="None" name="Audio lib"/>
     <Param val="" valType="str" updates="None" name="Completed URL"/>
     <Param val="auto" valType="str" updates="None" name="Data file delimiter"/>
-    <Param val="u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['date'])" valType="code" updates="None" name="Data filename"/>
+    <Param val="u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['group'])" valType="code" updates="None" name="Data filename"/>
     <Param val="True" valType="bool" updates="None" name="Enable Escape"/>
     <Param val="{'anonymous_participant_id': '', 'group': ''}" valType="code" updates="None" name="Experiment info"/>
     <Param val="True" valType="bool" updates="None" name="Force stereo"/>
@@ -14,12 +14,12 @@
     <Param val="" valType="str" updates="None" name="Incomplete URL"/>
     <Param val="testMonitor" valType="str" updates="None" name="Monitor"/>
     <Param val="[]" valType="list" updates="None" name="Resources"/>
-    <Param val="False" valType="bool" updates="None" name="Save csv file"/>
+    <Param val="True" valType="bool" updates="None" name="Save csv file"/>
     <Param val="False" valType="bool" updates="None" name="Save excel file"/>
     <Param val="False" valType="bool" updates="None" name="Save hdf5 file"/>
-    <Param val="True" valType="bool" updates="None" name="Save log file"/>
+    <Param val="False" valType="bool" updates="None" name="Save log file"/>
     <Param val="True" valType="bool" updates="None" name="Save psydat file"/>
-    <Param val="True" valType="bool" updates="None" name="Save wide csv file"/>
+    <Param val="False" valType="bool" updates="None" name="Save wide csv file"/>
     <Param val="1" valType="num" updates="None" name="Screen"/>
     <Param val="True" valType="bool" updates="None" name="Show info dlg"/>
     <Param val="False" valType="bool" updates="None" name="Show mouse"/>
@@ -45,7 +45,7 @@
     <Param val="127.0.0.1" valType="str" updates="None" name="gpAddress"/>
     <Param val="4242" valType="num" updates="None" name="gpPort"/>
     <Param val="PsychToolbox" valType="str" updates="None" name="keyboardBackend"/>
-    <Param val="exp" valType="code" updates="None" name="logging level"/>
+    <Param val="data" valType="code" updates="None" name="logging level"/>
     <Param val="('MIDDLE_BUTTON',)" valType="list" updates="None" name="mgBlink"/>
     <Param val="CONTINUOUS" valType="str" updates="None" name="mgMove"/>
     <Param val="0.5" valType="num" updates="None" name="mgSaccade"/>
@@ -1370,6 +1370,25 @@
         <Param val="True" valType="bool" updates="constant" name="syncScreenRefresh"/>
       </KeyboardComponent>
     </Routine>
+    <Routine name="sum_marble_pts">
+      <CodeComponent name="sum_code">
+        <Param val="" valType="extendedCode" updates="constant" name="Before Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Before JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Begin JS Routine"/>
+        <Param val="orange1 = Jar1_Colors.count('darkorange') * color_pts_dict['darkorange']&amp;#10;green1 = Jar1_Colors.count('green') * color_pts_dict['green']&amp;#10;purple1 = Jar1_Colors.count('purple') * color_pts_dict['purple']&amp;#10;&amp;#10;jar1_totalpoints = orange1 + green1 + purple1&amp;#10;thisExp.addData('marbleJar1_SumOfPoints', jar1_totalpoints)&amp;#10;&amp;#10;orange2 = Jar2_Colors.count('darkorange') * color_pts_dict['darkorange']&amp;#10;green2 = Jar2_Colors.count('green') * color_pts_dict['green']&amp;#10;purple2 = Jar2_Colors.count('purple') * color_pts_dict['purple']&amp;#10;&amp;#10;jar2_totalpoints = orange2 + green2 + purple2&amp;#10;thisExp.addData('marbleJar2_SumOfPoints', jar2_totalpoints)&amp;#10;&amp;#10;orange3 = Jar3_Colors.count('darkorange') * color_pts_dict['darkorange']&amp;#10;green3 = Jar3_Colors.count('green') * color_pts_dict['green']&amp;#10;purple3 = Jar3_Colors.count('purple') * color_pts_dict['purple']&amp;#10;&amp;#10;jar3_totalpoints = orange3 + green3 + purple3&amp;#10;thisExp.addData('marbleJar3_SumOfPoints', jar3_totalpoints)" valType="extendedCode" updates="constant" name="Begin Routine"/>
+        <Param val="Py" valType="str" updates="None" name="Code Type"/>
+        <Param val="" valType="extendedCode" updates="constant" name="Each Frame"/>
+        <Param val="orange1 = Jar1_Colors.count('darkorange') * 3&amp;#10;green1 = Jar1_Colors.count('green') * 4&amp;#10;purple1 = Jar1_Colors.count('purple') * 2&amp;#10;&amp;#10;jar1_totalpoints = orange1 + green1 + purple1&amp;#10;thisExp.addData('marbleJar1_SumOfPoints', jar1_totalpoints)&amp;#10;&amp;#10;orange2 = Jar2_Colors.count('darkorange') * 3&amp;#10;green2 = Jar2_Colors.count('green') * 4&amp;#10;purple2 = Jar2_Colors.count('purple') * 2&amp;#10;&amp;#10;jar2_totalpoints = orange2 + green2 + purple2&amp;#10;thisExp.addData('marbleJar2_SumOfPoints', jar2_totalpoints)&amp;#10;&amp;#10;if task == &quot;task_ChangeDetection&quot;:&amp;#10;    orange3 = Jar3_Colors.count('darkorange') * 3&amp;#10;    green3 = Jar3_Colors.count('green') * 4&amp;#10;    purple3 = Jar3_Colors.count('purple') * 2&amp;#10;&amp;#10;    jar3_totalpoints = orange3 + green3 + purple3&amp;#10;    thisExp.addData('marbleJar3_SumOfPoints', jar3_totalpoints)&amp;#10;   " valType="extendedCode" updates="constant" name="Each JS Frame"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Experiment"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End JS Routine"/>
+        <Param val="" valType="extendedCode" updates="constant" name="End Routine"/>
+        <Param val="False" valType="bool" updates="None" name="disabled"/>
+        <Param val="sum_code" valType="code" updates="None" name="name"/>
+      </CodeComponent>
+    </Routine>
   </Routines>
   <Flow>
     <Routine name="exp_name"/>
@@ -1405,6 +1424,7 @@
       <Param name="name" updates="None" val="which_trial" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
+    <Routine name="sum_marble_pts"/>
     <Routine name="trials_JarSelection1"/>
     <Routine name="trials_sample_marble1"/>
     <Routine name="trials_ChangeDetection1"/>
