@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Sun Sep 24 19:08:57 2023
+    on January 09, 2024, at 11:59
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -10,10 +10,6 @@ If you publish work using this script the most relevant publication is:
         https://doi.org/10.3758/s13428-018-01193-y
 
 """
-
-import psychopy
-psychopy.useVersion('2022.2.5')
-
 
 # --- Import packages ---
 from psychopy import locale_setup
@@ -56,7 +52,10 @@ orange = color_pts_dict['darkorange']
 green = color_pts_dict['green']
 purple = color_pts_dict['purple']
 # Run 'Before Experiment' code from code
-valuepath = '/Users/rochellekaper/Desktop/Both_Tasks/' + exp_name  + '/' + exp_name + '.png'
+valuepath = 'C:/Users/kaperr.WIN/Desktop/Marble_Jar_Paradigm/' + exp_name  + '/' + exp_name + '.png'
+
+#C:\Users\kaperr.WIN\Desktop\Marble_Jar_Paradigm\green_orange_purple\green_orange_purple.png
+
 # Run 'Before Experiment' code from check_task_3
 import random
 
@@ -80,16 +79,14 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['date'])
+filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['group'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/rochellekaper/Desktop/Both_Tasks/orange_purple_green/orange_purple_green_lastrun.py',
+    originPath='C:\\Users\\kaperr.WIN\\Desktop\\Marble_Jar_Paradigm\\orange_purple_green\\orange_purple_green_lastrun.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
-# save a log file for detail verbose info
-logFile = logging.LogFile(filename+'.log', level=logging.DATA)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
 endExpNow = False  # flag for 'escape' or other condition => quit the exp
@@ -99,7 +96,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # --- Setup the Window ---
 win = visual.Window(
-    size=[1470, 956], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -253,6 +250,18 @@ fb_2 = visual.TextStim(win=win, name='fb_2',
     languageStyle='LTR',
     depth=-1.0);
 
+# --- Initialize components for Routine "ready_to_begin1" ---
+text_3 = visual.TextStim(win=win, name='text_3',
+    text='Ready to begin the experiment? Scores from these trials will be collected.\n\n\nPress the space bar to begin.',
+    font='Open Sans',
+    pos=(0, 0), height=0.05, wrapWidth=None, ori=0.0, 
+    color='white', colorSpace='rgb', opacity=None, 
+    languageStyle='LTR',
+    depth=0.0);
+key_resp_ready = keyboard.Keyboard()
+
+# --- Initialize components for Routine "sum_marble_pts" ---
+
 # --- Initialize components for Routine "trials_JarSelection1" ---
 jar1 = visual.ImageStim(
     win=win,
@@ -380,6 +389,7 @@ both_tasks_feedback = visual.TextStim(win=win, name='both_tasks_feedback',
     color='white', colorSpace='rgb', opacity=None, 
     languageStyle='LTR',
     depth=0.0);
+key_resp_endofexperiment = keyboard.Keyboard()
 
 # Create some handy timers
 globalClock = core.Clock()  # to track the time since experiment started
@@ -796,14 +806,14 @@ for thisPractice_trial in practice_trials:
             jar1_3.setAutoDraw(True)
         if jar1_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar1_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar1_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar1_3.tStop = t  # not accounting for scr refresh
                 jar1_3.frameNStop = frameN  # exact frame index
                 jar1_3.setAutoDraw(False)
         
         # *text_2* updates
-        if text_2.status == NOT_STARTED and tThisFlip >= 2.0-frameTolerance:
+        if text_2.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             text_2.frameNStart = frameN  # exact frame index
             text_2.tStart = t  # local t and not account for scr refresh
@@ -815,7 +825,7 @@ for thisPractice_trial in practice_trials:
         
         # *key_resp_practice_JarSelection* updates
         waitOnFlip = False
-        if key_resp_practice_JarSelection.status == NOT_STARTED and tThisFlip >= 2.0-frameTolerance:
+        if key_resp_practice_JarSelection.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             key_resp_practice_JarSelection.frameNStart = frameN  # exact frame index
             key_resp_practice_JarSelection.tStart = t  # local t and not account for scr refresh
@@ -845,7 +855,7 @@ for thisPractice_trial in practice_trials:
             jar2_3.setAutoDraw(True)
         if jar2_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar2_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar2_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar2_3.tStop = t  # not accounting for scr refresh
                 jar2_3.frameNStop = frameN  # exact frame index
@@ -861,7 +871,7 @@ for thisPractice_trial in practice_trials:
             MarbleValues_3.setAutoDraw(True)
         if MarbleValues_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > MarbleValues_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > MarbleValues_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 MarbleValues_3.tStop = t  # not accounting for scr refresh
                 MarbleValues_3.frameNStop = frameN  # exact frame index
@@ -1338,6 +1348,103 @@ for thisPractice_trial in practice_trials:
 # completed 1.0 repeats of 'practice_trials'
 
 
+# --- Prepare to start Routine "ready_to_begin1" ---
+continueRoutine = True
+routineForceEnded = False
+# update component parameters for each repeat
+key_resp_ready.keys = []
+key_resp_ready.rt = []
+_key_resp_ready_allKeys = []
+# keep track of which components have finished
+ready_to_begin1Components = [text_3, key_resp_ready]
+for thisComponent in ready_to_begin1Components:
+    thisComponent.tStart = None
+    thisComponent.tStop = None
+    thisComponent.tStartRefresh = None
+    thisComponent.tStopRefresh = None
+    if hasattr(thisComponent, 'status'):
+        thisComponent.status = NOT_STARTED
+# reset timers
+t = 0
+_timeToFirstFrame = win.getFutureFlipTime(clock="now")
+frameN = -1
+
+# --- Run Routine "ready_to_begin1" ---
+while continueRoutine:
+    # get current time
+    t = routineTimer.getTime()
+    tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+    tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+    # update/draw components on each frame
+    
+    # *text_3* updates
+    if text_3.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        text_3.frameNStart = frameN  # exact frame index
+        text_3.tStart = t  # local t and not account for scr refresh
+        text_3.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(text_3, 'tStartRefresh')  # time at next scr refresh
+        # add timestamp to datafile
+        thisExp.timestampOnFlip(win, 'text_3.started')
+        text_3.setAutoDraw(True)
+    
+    # *key_resp_ready* updates
+    waitOnFlip = False
+    if key_resp_ready.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp_ready.frameNStart = frameN  # exact frame index
+        key_resp_ready.tStart = t  # local t and not account for scr refresh
+        key_resp_ready.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp_ready, 'tStartRefresh')  # time at next scr refresh
+        # add timestamp to datafile
+        thisExp.timestampOnFlip(win, 'key_resp_ready.started')
+        key_resp_ready.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp_ready.clock.reset)  # t=0 on next screen flip
+        win.callOnFlip(key_resp_ready.clearEvents, eventType='keyboard')  # clear events on next screen flip
+    if key_resp_ready.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp_ready.getKeys(keyList=['space'], waitRelease=False)
+        _key_resp_ready_allKeys.extend(theseKeys)
+        if len(_key_resp_ready_allKeys):
+            key_resp_ready.keys = _key_resp_ready_allKeys[-1].name  # just the last key pressed
+            key_resp_ready.rt = _key_resp_ready_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
+    
+    # check for quit (typically the Esc key)
+    if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+        core.quit()
+    
+    # check if all components have finished
+    if not continueRoutine:  # a component has requested a forced-end of Routine
+        routineForceEnded = True
+        break
+    continueRoutine = False  # will revert to True if at least one component still running
+    for thisComponent in ready_to_begin1Components:
+        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+            continueRoutine = True
+            break  # at least one component has not yet finished
+    
+    # refresh the screen
+    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+        win.flip()
+
+# --- Ending Routine "ready_to_begin1" ---
+for thisComponent in ready_to_begin1Components:
+    if hasattr(thisComponent, "setAutoDraw"):
+        thisComponent.setAutoDraw(False)
+# check responses
+if key_resp_ready.keys in ['', [], None]:  # No response was made
+    key_resp_ready.keys = None
+thisExp.addData('key_resp_ready.keys',key_resp_ready.keys)
+if key_resp_ready.keys != None:  # we had a response
+    thisExp.addData('key_resp_ready.rt', key_resp_ready.rt)
+thisExp.nextEntry()
+# the Routine "ready_to_begin1" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
+
 # set up handler to look after randomisation of conditions etc
 which_task = data.TrialHandler(nReps=1.0, method='fullRandom', 
     extraInfo=expInfo, originPath=-1,
@@ -1356,6 +1463,79 @@ for thisWhich_task in which_task:
     if thisWhich_task != None:
         for paramName in thisWhich_task:
             exec('{} = thisWhich_task[paramName]'.format(paramName))
+    
+    # --- Prepare to start Routine "sum_marble_pts" ---
+    continueRoutine = True
+    routineForceEnded = False
+    # update component parameters for each repeat
+    # Run 'Begin Routine' code from sum_code
+    orange1 = list(Jar1_Colors).count('darkorange') * color_pts_dict['darkorange']
+    green1 = list(Jar1_Colors).count('green') * color_pts_dict['green']
+    purple1 = list(Jar1_Colors).count('purple') * color_pts_dict['purple']
+    
+    jar1_totalpoints = orange1 + green1 + purple1
+    thisExp.addData('marbleJar1_SumOfPoints', jar1_totalpoints)
+    
+    orange2 = list(Jar2_Colors).count('darkorange') * color_pts_dict['darkorange']
+    green2 = list(Jar2_Colors).count('green') * color_pts_dict['green']
+    purple2 = list(Jar2_Colors).count('purple') * color_pts_dict['purple']
+    
+    jar2_totalpoints = orange2 + green2 + purple2
+    thisExp.addData('marbleJar2_SumOfPoints', jar2_totalpoints)
+    
+    orange3 = list(Jar3_Colors).count('darkorange') * color_pts_dict['darkorange']
+    green3 = list(Jar3_Colors).count('green') * color_pts_dict['green']
+    purple3 = list(Jar3_Colors).count('purple') * color_pts_dict['purple']
+    
+    jar3_totalpoints = orange3 + green3 + purple3
+    thisExp.addData('marbleJar3_SumOfPoints', jar3_totalpoints)
+    # keep track of which components have finished
+    sum_marble_ptsComponents = []
+    for thisComponent in sum_marble_ptsComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "sum_marble_pts" ---
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in sum_marble_ptsComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "sum_marble_pts" ---
+    for thisComponent in sum_marble_ptsComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    # the Routine "sum_marble_pts" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # --- Prepare to start Routine "trials_JarSelection1" ---
     continueRoutine = True
@@ -1399,14 +1579,14 @@ for thisWhich_task in which_task:
             jar1.setAutoDraw(True)
         if jar1.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar1.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar1.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar1.tStop = t  # not accounting for scr refresh
                 jar1.frameNStop = frameN  # exact frame index
                 jar1.setAutoDraw(False)
         
         # *text* updates
-        if text.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+        if text.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             text.frameNStart = frameN  # exact frame index
             text.tStart = t  # local t and not account for scr refresh
@@ -1416,7 +1596,7 @@ for thisWhich_task in which_task:
         
         # *key_resp_trials_JarSelection* updates
         waitOnFlip = False
-        if key_resp_trials_JarSelection.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+        if key_resp_trials_JarSelection.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             key_resp_trials_JarSelection.frameNStart = frameN  # exact frame index
             key_resp_trials_JarSelection.tStart = t  # local t and not account for scr refresh
@@ -1453,7 +1633,7 @@ for thisWhich_task in which_task:
             jar2.setAutoDraw(True)
         if jar2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar2.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar2.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar2.tStop = t  # not accounting for scr refresh
                 jar2.frameNStop = frameN  # exact frame index
@@ -1471,7 +1651,7 @@ for thisWhich_task in which_task:
             MarbleValues.setAutoDraw(True)
         if MarbleValues.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > MarbleValues.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > MarbleValues.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 MarbleValues.tStop = t  # not accounting for scr refresh
                 MarbleValues.frameNStop = frameN  # exact frame index
@@ -2053,9 +2233,6 @@ if which_task.trialList in ([], [None], None):
 else:
     params = which_task.trialList[0].keys()
 # save data for this loop
-which_task.saveAsExcel(filename + '.xlsx', sheetName='which_task',
-    stimOut=params,
-    dataOut=['n','all_mean','all_std', 'all_raw'])
 which_task.saveAsText(filename + 'which_task.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
@@ -2067,8 +2244,11 @@ routineForceEnded = False
 both_tasks_feedback.setText("Congrats on completing the Marble Jar Task! You got " + str(gainsTotal) + " points!")
 # Run 'Begin Routine' code from TOTAL_POINTS
 thisExp.addData('TOTAL POINTS', gainsTotal)
+key_resp_endofexperiment.keys = []
+key_resp_endofexperiment.rt = []
+_key_resp_endofexperiment_allKeys = []
 # keep track of which components have finished
-total_pts1Components = [both_tasks_feedback]
+total_pts1Components = [both_tasks_feedback, key_resp_endofexperiment]
 for thisComponent in total_pts1Components:
     thisComponent.tStart = None
     thisComponent.tStop = None
@@ -2082,7 +2262,7 @@ _timeToFirstFrame = win.getFutureFlipTime(clock="now")
 frameN = -1
 
 # --- Run Routine "total_pts1" ---
-while continueRoutine and routineTimer.getTime() < 3.0:
+while continueRoutine:
     # get current time
     t = routineTimer.getTime()
     tThisFlip = win.getFutureFlipTime(clock=routineTimer)
@@ -2100,15 +2280,27 @@ while continueRoutine and routineTimer.getTime() < 3.0:
         # add timestamp to datafile
         thisExp.timestampOnFlip(win, 'both_tasks_feedback.started')
         both_tasks_feedback.setAutoDraw(True)
-    if both_tasks_feedback.status == STARTED:
-        # is it time to stop? (based on global clock, using actual start)
-        if tThisFlipGlobal > both_tasks_feedback.tStartRefresh + 3.0-frameTolerance:
-            # keep track of stop time/frame for later
-            both_tasks_feedback.tStop = t  # not accounting for scr refresh
-            both_tasks_feedback.frameNStop = frameN  # exact frame index
-            # add timestamp to datafile
-            thisExp.timestampOnFlip(win, 'both_tasks_feedback.stopped')
-            both_tasks_feedback.setAutoDraw(False)
+    
+    # *key_resp_endofexperiment* updates
+    waitOnFlip = False
+    if key_resp_endofexperiment.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+        # keep track of start time/frame for later
+        key_resp_endofexperiment.frameNStart = frameN  # exact frame index
+        key_resp_endofexperiment.tStart = t  # local t and not account for scr refresh
+        key_resp_endofexperiment.tStartRefresh = tThisFlipGlobal  # on global time
+        win.timeOnFlip(key_resp_endofexperiment, 'tStartRefresh')  # time at next scr refresh
+        key_resp_endofexperiment.status = STARTED
+        # keyboard checking is just starting
+        waitOnFlip = True
+        win.callOnFlip(key_resp_endofexperiment.clock.reset)  # t=0 on next screen flip
+    if key_resp_endofexperiment.status == STARTED and not waitOnFlip:
+        theseKeys = key_resp_endofexperiment.getKeys(keyList=['p'], waitRelease=False)
+        _key_resp_endofexperiment_allKeys.extend(theseKeys)
+        if len(_key_resp_endofexperiment_allKeys):
+            key_resp_endofexperiment.keys = _key_resp_endofexperiment_allKeys[-1].name  # just the last key pressed
+            key_resp_endofexperiment.rt = _key_resp_endofexperiment_allKeys[-1].rt
+            # a response ends the routine
+            continueRoutine = False
     
     # check for quit (typically the Esc key)
     if endExpNow or defaultKeyboard.getKeys(keyList=["escape"]):
@@ -2132,11 +2324,15 @@ while continueRoutine and routineTimer.getTime() < 3.0:
 for thisComponent in total_pts1Components:
     if hasattr(thisComponent, "setAutoDraw"):
         thisComponent.setAutoDraw(False)
-# using non-slip timing so subtract the expected duration of this Routine (unless ended on request)
-if routineForceEnded:
-    routineTimer.reset()
-else:
-    routineTimer.addTime(-3.000000)
+# check responses
+if key_resp_endofexperiment.keys in ['', [], None]:  # No response was made
+    key_resp_endofexperiment.keys = None
+thisExp.addData('key_resp_endofexperiment.keys',key_resp_endofexperiment.keys)
+if key_resp_endofexperiment.keys != None:  # we had a response
+    thisExp.addData('key_resp_endofexperiment.rt', key_resp_endofexperiment.rt)
+thisExp.nextEntry()
+# the Routine "total_pts1" was not non-slip safe, so reset the non-slip timer
+routineTimer.reset()
 
 # --- End experiment ---
 # Flip one final time so any remaining win.callOnFlip() 
@@ -2146,7 +2342,6 @@ win.flip()
 # these shouldn't be strictly necessary (should auto-save)
 thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
-logging.flush()
 # make sure everything is closed down
 if eyetracker:
     eyetracker.setConnectionState(False)
