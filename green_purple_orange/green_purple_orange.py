@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on January 09, 2024, at 10:27
+    on January 09, 2024, at 14:04
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -82,7 +82,7 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous participan
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='C:\\Users\\kaperr.WIN\\Desktop\\Marble_Jar_Paradigm\\green_purple_orange\\green_purple_orange_lastrun.py',
+    originPath='C:\\Users\\kaperr.WIN\\Desktop\\Marble_Jar_Paradigm\\green_purple_orange\\green_purple_orange.py',
     savePickle=True, saveWideText=True,
     dataFileName=filename)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
