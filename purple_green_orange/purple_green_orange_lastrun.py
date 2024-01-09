@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on Sun Sep 24 20:52:54 2023
+    on January 09, 2024, at 12:37
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -10,10 +10,6 @@ If you publish work using this script the most relevant publication is:
         https://doi.org/10.3758/s13428-018-01193-y
 
 """
-
-import psychopy
-psychopy.useVersion('2022.2.5')
-
 
 # --- Import packages ---
 from psychopy import locale_setup
@@ -34,7 +30,9 @@ from psychopy.hardware import keyboard
 # Run 'Before Experiment' code from exp_name1_2
 exp_name = 'purple_green_orange'
 # Run 'Before Experiment' code from code
-valuepath = '/Users/rochellekaper/Desktop/Both_Tasks/' + exp_name  + '/' + exp_name + '.png'
+valuepath = 'C:/Users/kaperr.WIN/Desktop/Marble_Jar_Paradigm/' + exp_name  + '/' + exp_name + '.png'
+
+#C:\Users\kaperr.WIN\Desktop\Marble_Jar_Paradigm\green_orange_purple\green_orange_purple.png
 # Run 'Before Experiment' code from color_points_dict
 colors = []
 color_points = [2, 3, 4]
@@ -85,8 +83,8 @@ filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participan
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
     extraInfo=expInfo, runtimeInfo=None,
-    originPath='/Users/rochellekaper/Desktop/Both_Tasks/purple_green_orange/purple_green_orange_lastrun.py',
-    savePickle=True, saveWideText=False,
+    originPath='C:\\Users\\kaperr.WIN\\Desktop\\Marble_Jar_Paradigm\\purple_green_orange\\purple_green_orange_lastrun.py',
+    savePickle=True, saveWideText=True,
     dataFileName=filename)
 logging.console.setLevel(logging.WARNING)  # this outputs to the screen, not a file
 
@@ -97,7 +95,7 @@ frameTolerance = 0.001  # how close to onset before 'same' frame
 
 # --- Setup the Window ---
 win = visual.Window(
-    size=[1470, 956], fullscr=True, screen=0, 
+    size=[1920, 1080], fullscr=True, screen=0, 
     winType='pyglet', allowStencil=False,
     monitor='testMonitor', color=[0,0,0], colorSpace='rgb',
     blendMode='avg', useFBO=True, 
@@ -807,14 +805,14 @@ for thisPractice_trial in practice_trials:
             jar1_3.setAutoDraw(True)
         if jar1_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar1_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar1_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar1_3.tStop = t  # not accounting for scr refresh
                 jar1_3.frameNStop = frameN  # exact frame index
                 jar1_3.setAutoDraw(False)
         
         # *text_2* updates
-        if text_2.status == NOT_STARTED and tThisFlip >= 2.0-frameTolerance:
+        if text_2.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             text_2.frameNStart = frameN  # exact frame index
             text_2.tStart = t  # local t and not account for scr refresh
@@ -826,7 +824,7 @@ for thisPractice_trial in practice_trials:
         
         # *key_resp_practice_JarSelection* updates
         waitOnFlip = False
-        if key_resp_practice_JarSelection.status == NOT_STARTED and tThisFlip >= 2.0-frameTolerance:
+        if key_resp_practice_JarSelection.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             key_resp_practice_JarSelection.frameNStart = frameN  # exact frame index
             key_resp_practice_JarSelection.tStart = t  # local t and not account for scr refresh
@@ -856,7 +854,7 @@ for thisPractice_trial in practice_trials:
             jar2_3.setAutoDraw(True)
         if jar2_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar2_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar2_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar2_3.tStop = t  # not accounting for scr refresh
                 jar2_3.frameNStop = frameN  # exact frame index
@@ -872,7 +870,7 @@ for thisPractice_trial in practice_trials:
             MarbleValues_3.setAutoDraw(True)
         if MarbleValues_3.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > MarbleValues_3.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > MarbleValues_3.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 MarbleValues_3.tStop = t  # not accounting for scr refresh
                 MarbleValues_3.frameNStop = frameN  # exact frame index
@@ -1356,9 +1354,6 @@ if practice_trials.trialList in ([], [None], None):
 else:
     params = practice_trials.trialList[0].keys()
 # save data for this loop
-practice_trials.saveAsExcel(filename + '.xlsx', sheetName='practice_trials',
-    stimOut=params,
-    dataOut=['n','all_mean','all_std', 'all_raw'])
 practice_trials.saveAsText(filename + 'practice_trials.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
@@ -1594,14 +1589,14 @@ for thisWhich_trial in which_trial:
             jar1.setAutoDraw(True)
         if jar1.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar1.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar1.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar1.tStop = t  # not accounting for scr refresh
                 jar1.frameNStop = frameN  # exact frame index
                 jar1.setAutoDraw(False)
         
         # *text* updates
-        if text.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+        if text.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             text.frameNStart = frameN  # exact frame index
             text.tStart = t  # local t and not account for scr refresh
@@ -1611,7 +1606,7 @@ for thisWhich_trial in which_trial:
         
         # *key_resp_trials_JarSelection* updates
         waitOnFlip = False
-        if key_resp_trials_JarSelection.status == NOT_STARTED and tThisFlip >= 2.5-frameTolerance:
+        if key_resp_trials_JarSelection.status == NOT_STARTED and tThisFlip >= 3-frameTolerance:
             # keep track of start time/frame for later
             key_resp_trials_JarSelection.frameNStart = frameN  # exact frame index
             key_resp_trials_JarSelection.tStart = t  # local t and not account for scr refresh
@@ -1648,7 +1643,7 @@ for thisWhich_trial in which_trial:
             jar2.setAutoDraw(True)
         if jar2.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > jar2.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > jar2.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 jar2.tStop = t  # not accounting for scr refresh
                 jar2.frameNStop = frameN  # exact frame index
@@ -1666,7 +1661,7 @@ for thisWhich_trial in which_trial:
             MarbleValues.setAutoDraw(True)
         if MarbleValues.status == STARTED:
             # is it time to stop? (based on global clock, using actual start)
-            if tThisFlipGlobal > MarbleValues.tStartRefresh + 1.5-frameTolerance:
+            if tThisFlipGlobal > MarbleValues.tStartRefresh + 2-frameTolerance:
                 # keep track of stop time/frame for later
                 MarbleValues.tStop = t  # not accounting for scr refresh
                 MarbleValues.frameNStop = frameN  # exact frame index
@@ -2246,9 +2241,6 @@ if which_trial.trialList in ([], [None], None):
 else:
     params = which_trial.trialList[0].keys()
 # save data for this loop
-which_trial.saveAsExcel(filename + '.xlsx', sheetName='which_trial',
-    stimOut=params,
-    dataOut=['n','all_mean','all_std', 'all_raw'])
 which_trial.saveAsText(filename + 'which_trial.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
@@ -2356,6 +2348,7 @@ routineTimer.reset()
 win.flip()
 
 # these shouldn't be strictly necessary (should auto-save)
+thisExp.saveAsWideText(filename+'.csv', delim='auto')
 thisExp.saveAsPickle(filename)
 # make sure everything is closed down
 if eyetracker:
