@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2022.2.5),
-    on March 26, 2024, at 15:57
+    on April 19, 2024, at 14:10
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -67,7 +67,7 @@ os.chdir(_thisDir)
 psychopyVersion = '2022.2.5'
 expName = 'purple_orange_green'  # from the Builder filename that created this script
 expInfo = {
-    'anonymous participant id': '',
+    'anonymous_participant_id': '',
     'group': '',
 }
 # --- Show participant info dialog --
@@ -79,7 +79,7 @@ expInfo['expName'] = expName
 expInfo['psychopyVersion'] = psychopyVersion
 
 # Data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
-filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous participant id'], expName, expInfo['group'])
+filename = _thisDir + os.sep + u'data/%s_%s_%s' % (expInfo['anonymous_participant_id'], expName, expInfo['group'])
 
 # An ExperimentHandler isn't essential but helps with data saving
 thisExp = data.ExperimentHandler(name=expName, version='',
@@ -2225,6 +2225,9 @@ if which_trial.trialList in ([], [None], None):
 else:
     params = which_trial.trialList[0].keys()
 # save data for this loop
+which_trial.saveAsExcel(filename + '.xlsx', sheetName='which_trial',
+    stimOut=params,
+    dataOut=['n','all_mean','all_std', 'all_raw'])
 which_trial.saveAsText(filename + 'which_trial.csv', delim=',',
     stimOut=params,
     dataOut=['n','all_mean','all_std', 'all_raw'])
